@@ -1097,7 +1097,7 @@ const [isSyncing, setIsSyncing] = useState(false);
     setToast({ title: "同步中", desc: "正在备份至云端..." });
     try {
       const payload = { userId, records, todos, categories, userState };
-      const res = await fetch(`http://8.137.179.106/sync.php`, {
+      const res = await fetch(`https://iseeme9.top/sync.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -1116,7 +1116,7 @@ const [isSyncing, setIsSyncing] = useState(false);
     setIsSyncing(true);
     setToast({ title: "同步中", desc: "正在拉取云端存档..." });
     try {
-      const res = await fetch(`http://8.137.179.106/sync.php?userId=${userId}`);
+      const res = await fetch(`https://iseeme9.top/sync.php?userId=${userId}`);
       const jsonData = await res.json();
       if (jsonData.records) {
         localStorage.setItem(`timeflow_records_${userId}`, JSON.stringify(jsonData.records));
